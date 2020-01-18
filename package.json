@@ -1,0 +1,37 @@
+{
+  "name": "copy-link",
+  "description": "Chrome extension to copy the link of the current page.",
+  "version": "0.0.0",
+  "author": "chick307 <chick307@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/chick307/copy-link/issues"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "generate-json-webpack-plugin": "^0.3.1",
+    "mini-css-extract-plugin": "^0.9.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "homepage": "https://github.com/chick307/copy-link#readme",
+  "keywords": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chick307/copy-link.git"
+  },
+  "scripts": {
+    "build:prod": "webpack --config webpack.prod.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:dev": "webpack --config webpack.dev.js --watch"
+  }
+}
