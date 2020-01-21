@@ -13,11 +13,20 @@ export const Popup = () => {
         browserTabService.getCurrentTab().then(setTabInfo);
     }, []);
 
+    const onTitleCopyButtonClick = React.useCallback(() => {
+        if (tabInfo === null)
+            return; // never
+        navigator.clipboard.writeText(tabInfo.title);
+    }, [tabInfo]);
+
     if (tabInfo === null)
         return <></>;
 
     return <>
-        <div>{tabInfo.title}</div>
+        <div>
+            {tabInfo.title}
+            <button onClick={onTitleCopyButtonClick}>Copy Title</button>
+        </div>
         <div>{tabInfo.url}</div>
     </>;
 };
