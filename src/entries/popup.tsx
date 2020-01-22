@@ -21,7 +21,7 @@ export const Popup = () => {
 
     return <>
         <CopyTextButton clipboardService={clipboardService} data={tabInfo.title}>Copy Title</CopyTextButton>
-        <div>{tabInfo.url}</div>
+        <CopyTextButton clipboardService={clipboardService} data={tabInfo.url}>Copy URL</CopyTextButton>
     </>;
 };
 
