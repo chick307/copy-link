@@ -1,6 +1,6 @@
 export class ClipboardService {
-    writeText(data: string) {
-        navigator.clipboard.writeText(data);
+    async writeText(data: string): Promise<void> {
+        await navigator.clipboard.writeText(data);
     }
 }
 
