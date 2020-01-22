@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+import { CopyTextButton } from '../components/copy-text-button';
 import { BrowserTabService, Tab } from '../services/browser-tab-service';
 import { ClipboardService } from '../services/clipboard-service';
 import '../styles/popup.css';
@@ -15,20 +16,11 @@ export const Popup = () => {
         browserTabService.getCurrentTab().then(setTabInfo);
     }, []);
 
-    const onTitleCopyButtonClick = React.useCallback(() => {
-        if (tabInfo === null)
-            return; // never
-        clipboardService.writeText(tabInfo.title);
-    }, [tabInfo]);
-
     if (tabInfo === null)
         return <></>;
 
     return <>
-        <div>
-            {tabInfo.title}
-            <button onClick={onTitleCopyButtonClick}>Copy Title</button>
-        </div>
+        <CopyTextButton clipboardService={clipboardService} data={tabInfo.title}>Copy Title</CopyTextButton>
         <div>{tabInfo.url}</div>
     </>;
 };
