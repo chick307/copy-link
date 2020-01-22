@@ -9,6 +9,28 @@ module.exports = {
     ...common,
     devtool: 'inline-source-map',
     mode: 'development',
+    module: {
+        ...common.module,
+        rules: common.module.rules.map((rule) => {
+            return {
+                ...rule,
+                use: rule.use.map((use) => {
+                    if (use.loader === 'css-loader') {
+                        return {
+                            ...use,
+                            options: {
+                                ...use.options,
+                                modules: {
+                                    localIdentName: '[local]__[path][name]',
+                                },
+                            },
+                        };
+                    }
+                    return use;
+                }),
+            };
+        }),
+    },
     output: {
         ...common.output,
         path: path.resolve(__dirname, 'build', 'dev'),
