@@ -3,27 +3,28 @@ import ReactDom from 'react-dom';
 
 import { CopyLinkButton } from '../components/copy-link-button';
 import { CopyTextButton } from '../components/copy-text-button';
-import { BrowserTabService, Tab } from '../services/browser-tab-service';
+import { BrowserTabService } from '../services/browser-tab-service';
 import { ClipboardService } from '../services/clipboard-service';
 import '../styles/popup.css';
+import { LinkData } from '../values/link-data';
 
 export const Popup = () => {
     const browserTabService = React.useMemo(() => new BrowserTabService(), []);
     const clipboardService = React.useMemo(() => new ClipboardService(), []);
 
-    const [tabInfo, setTabInfo] = React.useState<{ title: string; url: string; } | null>(null);
+    const [linkData, setLinkData] = React.useState<LinkData | null>(null);
 
     React.useEffect(() => {
-        browserTabService.getCurrentTab().then(setTabInfo);
+        browserTabService.getCurrentTab().then(setLinkData);
     }, []);
 
-    if (tabInfo === null)
+    if (linkData === null)
         return <></>;
 
     return <>
-        <CopyLinkButton clipboardService={clipboardService} data={tabInfo}>Copy Link</CopyLinkButton>
-        <CopyTextButton clipboardService={clipboardService} data={tabInfo.title}>Copy Title</CopyTextButton>
-        <CopyTextButton clipboardService={clipboardService} data={tabInfo.url}>Copy URL</CopyTextButton>
+        <CopyLinkButton clipboardService={clipboardService} data={linkData}>Copy Link</CopyLinkButton>
+        <CopyTextButton clipboardService={clipboardService} data={linkData.title}>Copy Title</CopyTextButton>
+        <CopyTextButton clipboardService={clipboardService} data={linkData.url}>Copy URL</CopyTextButton>
     </>;
 };
 
