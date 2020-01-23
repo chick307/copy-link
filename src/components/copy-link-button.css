@@ -1,0 +1,40 @@
+.copy-link-button {
+    display: flex;
+}
+
+.data {
+    flex: 1;
+    overflow: auto;
+    white-space: nowrap;
+    margin-right: 1em;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 0.75em;
+    box-sizing: border-box;
+    line-height: 1em;
+    color: #444444;
+    user-select: text;
+    cursor: text;
+}
+
+.data::-webkit-scrollbar {
+    display: none;
+}
+
+.button {
+    display: inline-block;
+    background: #EEEEEE;
+    color: #444444;
+    outline: none;
+    border: none;
+    padding: 0.75em 2em;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #DDDDDD;
+}
+
+.button:active {
+    background: #CCCCCC;
+}

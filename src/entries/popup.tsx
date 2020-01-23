@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
+import { CopyLinkButton } from '../components/copy-link-button';
 import { CopyTextButton } from '../components/copy-text-button';
 import { BrowserTabService, Tab } from '../services/browser-tab-service';
 import { ClipboardService } from '../services/clipboard-service';
@@ -20,6 +21,7 @@ export const Popup = () => {
         return <></>;
 
     return <>
+        <CopyLinkButton clipboardService={clipboardService} data={tabInfo}>Copy Link</CopyLinkButton>
         <CopyTextButton clipboardService={clipboardService} data={tabInfo.title}>Copy Title</CopyTextButton>
         <CopyTextButton clipboardService={clipboardService} data={tabInfo.url}>Copy URL</CopyTextButton>
     </>;
