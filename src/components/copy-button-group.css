@@ -1,7 +1,7 @@
 .copy-button-group {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-row-gap: 1em;
+    grid-row-gap: 1rem;
 }
 
 .copy-button-group > .copy-button {

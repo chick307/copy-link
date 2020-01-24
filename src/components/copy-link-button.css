@@ -6,11 +6,11 @@
     flex: 1;
     overflow: auto;
     white-space: nowrap;
-    margin-right: 1em;
+    margin-right: 1rem;
     border-bottom: 1px solid #EEEEEE;
-    padding: 0.75em;
+    padding: 0.75rem;
     box-sizing: border-box;
-    line-height: 1em;
+    line-height: 1rem;
     color: #444444;
     user-select: text;
     cursor: text;
@@ -26,7 +26,7 @@
     color: #444444;
     outline: none;
     border: none;
-    padding: 0.75em 2em;
+    padding: 0.75rem 2rem;
     line-height: 1;
     cursor: pointer;
 }
