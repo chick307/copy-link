@@ -1,0 +1,9 @@
+.copy-button-group {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-row-gap: 1em;
+}
+
+.copy-button-group > .copy-button {
+    display: contents;
+}

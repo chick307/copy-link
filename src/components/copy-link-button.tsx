@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LinkData } from '../values/link-data';
 import { ClipboardService } from '../services/clipboard-service';
+import copyButtonGroupStyles from './copy-button-group.css';
 import styles from './copy-link-button.css';
 
 export type Props = {
@@ -36,7 +37,7 @@ export const CopyLinkButton = (props: Props) => {
     }, []);
 
     return <>
-        <div className={styles.copyLinkButton}>
+        <div className={`${styles.copyLinkButton} ${copyButtonGroupStyles.copyButton}`}>
             <span className={styles.data}>
                 <a href={data.url} onClick={preventDefault}>
                     {data.title}

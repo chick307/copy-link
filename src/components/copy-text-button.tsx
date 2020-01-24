@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ClipboardService } from '../services/clipboard-service';
+import copyButtonGroupStyles from './copy-button-group.css';
 import styles from './copy-text-button.css';
 
 export type Props = {
@@ -17,7 +18,7 @@ export const CopyTextButton = (props: Props) => {
     }, [data]);
 
     return <>
-        <div className={styles.copyTextButton}>
+        <div className={`${styles.copyTextButton} ${copyButtonGroupStyles.copyButton}`}>
             <span className={styles.data}>{data}</span>
             <button className={styles.button} onClick={onButtonClick}>{children}</button>
         </div>
