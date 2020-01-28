@@ -1,0 +1,68 @@
+.message-bubble {
+    display: inline-block;
+}
+
+.message {
+    display: inline-block;
+    position: relative;
+    background: #444444;
+    color: #EEEEEE;
+    padding: 0.75em;
+}
+
+.message::after {
+    position: absolute;
+    content: "";
+    display: block;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 0;
+}
+
+.message.direction-top {
+    margin-bottom: 0.8ex;
+}
+
+.message.direction-top::after {
+    bottom: -0.8ex;
+    left: 50%;
+    margin-left: -0.4ex;
+    border-top-color: #444444;
+    border-width: 0.8ex 0.6ex 0 0.6ex;
+}
+
+.message.direction-right {
+    margin-left: 0.8ex;
+}
+
+.message.direction-right::after {
+    left: -0.8ex;
+    top: 50%;
+    margin-top: -0.4ex;
+    border-right-color: #444444;
+    border-width: 0.6ex 0.8ex 0.6ex 0;
+}
+
+.message.direction-bottom {
+    margin-top: 0.8ex;
+}
+
+.message.direction-bottom::after {
+    top: -0.8ex;
+    left: 50%;
+    margin-left: -0.4ex;
+    border-bottom-color: #444444;
+    border-width: 0 0.6ex 0.8ex 0.6ex;
+}
+
+.message.direction-left {
+    margin-right: 0.8ex;
+}
+
+.message.direction-left::after {
+    right: -0.8ex;
+    top: 50%;
+    margin-top: -0.4ex;
+    border-left-color: #444444;
+    border-width: 0.6ex 0 0.6ex 0.8ex;
+}
