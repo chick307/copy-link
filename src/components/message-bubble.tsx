@@ -16,7 +16,7 @@ export const MessageBubble = (props: Props) => {
     const directionClassName = direction == null ? '' : `direction-${direction}`;
 
     return <>
-        <div className={`${className} ${styles.mssageBubble}`}>
+        <div className={className}>
             <div className={`${styles[directionClassName]} ${styles.message}`}>
                 {children}
             </div>
