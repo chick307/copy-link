@@ -4,6 +4,7 @@ import { LinkData } from '../values/link-data';
 import { ClipboardService } from '../services/clipboard-service';
 import copyButtonGroupStyles from './copy-button-group.css';
 import styles from './copy-link-button.css';
+import { CommandButton } from './command-button';
 
 export type Props = {
     children?: React.ReactNode;
@@ -28,8 +29,12 @@ export const CopyLinkButton = (props: Props) => {
         return `<a href="${escapedUrl}">${escapedTitle}</a>`;
     }, [data]);
 
-    const onButtonClick = React.useCallback(() => {
-        clipboardService.writeHtml(html, data.title);
+    const command = React.useMemo(() => {
+        return {
+            run: async () => {
+                await clipboardService.writeHtml(html, data.title);
+            },
+        };
     }, [data]);
 
     const preventDefault = React.useCallback((e: { preventDefault(): void; }) => {
@@ -43,7 +48,9 @@ export const CopyLinkButton = (props: Props) => {
                     {data.title}
                 </a>
             </span>
-            <button className={styles.button} onClick={onButtonClick}>{children}</button>
+            <CommandButton buttonClassName={styles.button} command={command} succeededMessage={'Copied'}>
+                {children}
+            </CommandButton>
         </div>
     </>;
 };
