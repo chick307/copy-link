@@ -71,7 +71,7 @@ export const CommandButton = (props: Props) => {
         if (failedMessage == null)
             return null;
         return <>
-            <MessageBubble className={styles.messageBubble} direction={'left'}>{failedMessage}</MessageBubble>
+            <MessageBubble className={styles.messageBubble} direction={'left'} color={'red'}>{failedMessage}</MessageBubble>
         </>;
     }, [failedMessage]);
 
