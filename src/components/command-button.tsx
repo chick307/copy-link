@@ -13,6 +13,7 @@ export type Props = {
     buttonClassName?: string;
     children?: React.ReactNode;
     command: Command;
+    failedMessage?: React.ReactNode;
     succeededMessage?: React.ReactNode;
 };
 
@@ -23,7 +24,7 @@ type CommandState =
     { type: 'idle' };
 
 export const CommandButton = (props: Props) => {
-    const { buttonClassName = '', children, command, succeededMessage } = props;
+    const { buttonClassName = '', children, command, failedMessage, succeededMessage } = props;
 
     const [commandState, setCommandState] = React.useState<CommandState>({ type: 'idle' });
 
@@ -66,8 +67,17 @@ export const CommandButton = (props: Props) => {
         </>;
     }, [succeededMessage])
 
+    const failedMessageBubble = React.useMemo(() => {
+        if (failedMessage == null)
+            return null;
+        return <>
+            <MessageBubble className={styles.messageBubble} direction={'left'}>{failedMessage}</MessageBubble>
+        </>;
+    }, [failedMessage]);
+
     const messageBubble =
         commandState.type === 'succeeded' ? succeededMessageBubble :
+        commandState.type === 'failed' ? failedMessageBubble :
         null;
 
     return <>
