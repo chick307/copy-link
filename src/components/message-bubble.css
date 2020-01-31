@@ -1,7 +1,7 @@
 .message {
     display: inline-block;
     position: relative;
-    background: #444444;
+    background: var(--bubble-color);
     color: #EEEEEE;
     padding: 0.75em;
 }
@@ -15,6 +15,14 @@
     border-width: 0;
 }
 
+.message.color-black {
+    --bubble-color: #444444;
+}
+
+.message.color-red {
+    --bubble-color: #CC0000;
+}
+
 .message.direction-top {
     margin-bottom: 0.8ex;
 }
@@ -23,7 +31,7 @@
     bottom: -0.8ex;
     left: 50%;
     margin-left: -0.4ex;
-    border-top-color: #444444;
+    border-top-color: var(--bubble-color);
     border-width: 0.8ex 0.6ex 0 0.6ex;
 }
 
@@ -35,7 +43,7 @@
     left: -0.8ex;
     top: 50%;
     margin-top: -0.4ex;
-    border-right-color: #444444;
+    border-right-color: var(--bubble-color);
     border-width: 0.6ex 0.8ex 0.6ex 0;
 }
 
@@ -47,7 +55,7 @@
     top: -0.8ex;
     left: 50%;
     margin-left: -0.4ex;
-    border-bottom-color: #444444;
+    border-bottom-color: var(--bubble-color);
     border-width: 0 0.6ex 0.8ex 0.6ex;
 }
 
@@ -59,6 +67,6 @@
     right: -0.8ex;
     top: 50%;
     margin-top: -0.4ex;
-    border-left-color: #444444;
+    border-left-color: var(--bubble-color);
     border-width: 0.6ex 0 0.6ex 0.8ex;
 }
