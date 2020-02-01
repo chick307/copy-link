@@ -48,7 +48,8 @@ export const CopyLinkButton = (props: Props) => {
                     {data.title}
                 </a>
             </span>
-            <CommandButton buttonClassName={styles.button} command={command} succeededMessage={'Copied'} failedMessage={'Failed'}>
+            <CommandButton buttonClassName={styles.button} command={command}
+                succeededMessage={'Copied'} failedMessage={'Failed'}>
                 {children}
             </CommandButton>
         </div>

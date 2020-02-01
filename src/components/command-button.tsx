@@ -6,7 +6,7 @@ import { MessageBubble, Direction } from './message-bubble';
 export type MessageDirection = Direction;
 
 export type Command = {
-    run(): Promise<any>;
+    run(): Promise<void>;
 };
 
 export type Props = {
@@ -18,10 +18,10 @@ export type Props = {
 };
 
 type CommandState =
-    { type: 'running' } |
-    { type: 'succeeded' } |
-    { type: 'failed' } |
-    { type: 'idle' };
+    { type: 'running'; } |
+    { type: 'succeeded'; } |
+    { type: 'failed'; } |
+    { type: 'idle'; };
 
 export const CommandButton = (props: Props) => {
     const { buttonClassName = '', children, command, failedMessage, succeededMessage } = props;
@@ -63,15 +63,19 @@ export const CommandButton = (props: Props) => {
         if (succeededMessage == null)
             return null;
         return <>
-            <MessageBubble className={styles.messageBubble} direction={'left'}>{succeededMessage}</MessageBubble>
+            <MessageBubble className={styles.messageBubble} direction={'left'}>
+                {succeededMessage}
+            </MessageBubble>
         </>;
-    }, [succeededMessage])
+    }, [succeededMessage]);
 
     const failedMessageBubble = React.useMemo(() => {
         if (failedMessage == null)
             return null;
         return <>
-            <MessageBubble className={styles.messageBubble} direction={'left'} color={'red'}>{failedMessage}</MessageBubble>
+            <MessageBubble className={styles.messageBubble} direction={'left'} color={'red'}>
+                {failedMessage}
+            </MessageBubble>
         </>;
     }, [failedMessage]);
 

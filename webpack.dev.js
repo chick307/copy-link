@@ -1,3 +1,5 @@
+/* eslint sort-keys: 'error' */
+
 const path = require('path');
 
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
@@ -39,7 +41,9 @@ module.exports = {
         ...common.plugins,
         new GenerateJsonPlugin('manifest.json', {
             ...manifest,
+            /* eslint-disable @typescript-eslint/camelcase */
             content_security_policy: `${manifest.content_security_policy}; script-src 'self' 'unsafe-eval'`,
+            /* eslint-enable @typescript-eslint/camelcase */
         }, null, 2),
     ],
 };

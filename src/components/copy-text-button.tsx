@@ -26,7 +26,8 @@ export const CopyTextButton = (props: Props) => {
     return <>
         <div className={`${styles.copyTextButton} ${copyButtonGroupStyles.copyButton}`}>
             <span className={styles.data}>{data}</span>
-            <CommandButton buttonClassName={styles.button} command={command} succeededMessage={'Copied'} failedMessage={'Failed'}>
+            <CommandButton buttonClassName={styles.button} command={command}
+                succeededMessage={'Copied'} failedMessage={'Failed'}>
                 {children}
             </CommandButton>
         </div>

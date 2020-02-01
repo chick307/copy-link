@@ -1,3 +1,5 @@
+/* eslint sort-keys: 'error' */
+
 const path = require('path');
 
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
