@@ -1,3 +1,5 @@
+![Copy Link](https://github.com/chick307/copy-link/blob/master/images/icon-512.png)
+
 # Copy Link
 
 Chrome extension to copy the link of the current page.
