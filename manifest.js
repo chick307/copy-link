@@ -7,6 +7,10 @@ module.exports = {
     version: pkg.version,
     description: pkg.description,
     browser_action: {
+        default_icon: {
+            32: 'assets/images/browser-action-32.png',
+            64: 'assets/images/browser-action-64.png',
+        },
         default_popup: 'views/popup.html',
         default_title: 'Copy Link',
     },
