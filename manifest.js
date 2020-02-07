@@ -16,6 +16,7 @@ module.exports = {
     },
     content_security_policy: `default-src 'self'`,
     icons: {
+        64: 'assets/images/icon-64.png',
         128: 'assets/images/icon-128.png',
     },
     minimum_chrome_version: '79',
