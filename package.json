@@ -36,6 +36,9 @@
   },
   "scripts": {
     "build:prod": "webpack --config webpack.prod.js",
+    "clean": "rm -rf build",
+    "clean:dev": "rm -rf build/prod",
+    "clean:prod": "rm -rf build/prod",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:dev": "webpack --config webpack.dev.js --watch"
