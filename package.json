@@ -35,11 +35,14 @@
     "url": "git+https://github.com/chick307/copy-link.git"
   },
   "scripts": {
+    "build:archive": "cd build/prod && zip -r ../archive.zip .",
     "build:prod": "webpack --config webpack.prod.js",
     "clean": "rm -rf build",
+    "clean:archive": "rm -f build/archive.zip",
     "clean:dev": "rm -rf build/prod",
     "clean:prod": "rm -rf build/prod",
     "lint": "eslint --ext .js,.ts,.tsx .",
+    "prebuild:archive": "npm run clean:prod && npm run clean:archive && npm run build:prod",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:dev": "webpack --config webpack.dev.js --watch"
   }
