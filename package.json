@@ -30,6 +30,7 @@
   "homepage": "https://github.com/chick307/copy-link#readme",
   "keywords": [],
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chick307/copy-link.git"
