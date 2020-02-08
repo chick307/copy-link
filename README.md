@@ -4,6 +4,8 @@
 
 Chrome extension to copy the link of the current page.
 
+![Screenshot](https://github.com/chick307/copy-link/blob/master/images/screenshot-1.png)
+
 ## License
 
 Released under the MIT License.
