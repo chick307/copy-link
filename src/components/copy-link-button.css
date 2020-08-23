@@ -20,7 +20,50 @@
     display: none;
 }
 
+.command-button {
+    flex: 1;
+}
+
 .button {
     padding: 0.75rem 2rem;
     line-height: 1;
+}
+
+.button-group {
+    display: flex;
+    position: relative;
+}
+
+.button-group > .button {
+    flex: 1;
+}
+
+.dropdown-button {
+    padding: 0.5rem;
+    line-height: 1;
+}
+
+
+.dropdown-button-icon {
+    width: 1.5em;
+    height: 1.5em;
+    object-fit: contain;
+}
+
+.dropdown {
+    display: none;
+    flex-direction: column;
+    background: #DDDDDD;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: max-content;
+    z-index: 1;
+    --commandButton-defaultButtonFace: #DDDDDD;
+    --commandButton-hoverButtonFace: #CCCCCC;
+    --commandButton-activeButtonFace: #BBBBBB;
+}
+
+.dropdown.visible {
+    display: flex;
 }

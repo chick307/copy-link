@@ -41,6 +41,38 @@ export const CopyLinkButton = (props: Props) => {
         e.preventDefault();
     }, []);
 
+    const [dropdownVisible, setDropdownVisible] = React.useState(() => false);
+
+    const toggleDropdownCommand = React.useMemo(() => {
+        return {
+            run: async () => {
+                setDropdownVisible((visible) => !visible);
+            },
+        };
+    }, []);
+
+    const copyHtmlLinkCommand = React.useMemo(() => {
+        return {
+            run: async () => {
+                await clipboardService.writeText(html);
+            },
+        };
+    }, [data]);
+
+    React.useEffect(() => {
+        const listener = () => {
+            setDropdownVisible(() => false);
+        };
+        document.addEventListener('click', listener, false);
+        return () => {
+            document.removeEventListener('click', listener);
+        };
+    }, []);
+
+    const stopPropagation = React.useCallback((e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.nativeEvent.stopImmediatePropagation();
+    }, []);
+
     return <>
         <div className={`${styles.copyLinkButton} ${copyButtonGroupStyles.copyButton}`}>
             <span className={styles.data}>
@@ -48,10 +80,23 @@ export const CopyLinkButton = (props: Props) => {
                     {data.title}
                 </a>
             </span>
-            <CommandButton buttonClassName={styles.button} command={command}
-                succeededMessage={'Copied'} failedMessage={'Failed'}>
-                {children}
-            </CommandButton>
+            <div className={styles.buttonGroup}>
+                <CommandButton className={styles.commandButton} buttonClassName={styles.button} command={command}
+                    succeededMessage={'Copied'} failedMessage={'Failed'}>
+                    {children}
+                </CommandButton>
+                <div onClick={stopPropagation}>
+                    <CommandButton buttonClassName={styles.dropdownButton} command={toggleDropdownCommand}>
+                        <img className={styles.dropdownButtonIcon} src='assets/images/chevron-down.svg' />
+                    </CommandButton>
+                    <div className={`${styles.dropdown} ${dropdownVisible ? styles.visible : ''}`}>
+                        <CommandButton buttonClassName={styles.button}
+                            command={copyHtmlLinkCommand} succeededMessage={'Copied'} failedMessage={'Failed'}>
+                            Copy Link as HTML
+                        </CommandButton>
+                    </div>
+                </div>
+            </div>
         </div>
     </>;
 };
