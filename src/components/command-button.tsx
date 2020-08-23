@@ -12,6 +12,7 @@ export type Command = {
 export type Props = {
     buttonClassName?: string;
     children?: React.ReactNode;
+    className?: string;
     command: Command;
     failedMessage?: React.ReactNode;
     succeededMessage?: React.ReactNode;
@@ -24,7 +25,7 @@ type CommandState =
     { type: 'idle'; };
 
 export const CommandButton = (props: Props) => {
-    const { buttonClassName = '', children, command, failedMessage, succeededMessage } = props;
+    const { buttonClassName = '', children, className = '', command, failedMessage, succeededMessage } = props;
 
     const [commandState, setCommandState] = React.useState<CommandState>({ type: 'idle' });
 
@@ -85,7 +86,7 @@ export const CommandButton = (props: Props) => {
         null;
 
     return <>
-        <div className={styles.commandButton}>
+        <div className={`${styles.commandButton} ${className}`}>
             {messageBubble}
             <button className={`${styles.button} ${buttonClassName}`} disabled={buttonDisabled} onClick={onButtonClick}>
                 {children}
