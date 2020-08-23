@@ -21,20 +21,6 @@
 }
 
 .button {
-    display: inline-block;
-    background: #EEEEEE;
-    color: #444444;
-    outline: none;
-    border: none;
     padding: 0.75rem 2rem;
     line-height: 1;
-    cursor: pointer;
-}
-
-.button:hover {
-    background: #DDDDDD;
-}
-
-.button:active {
-    background: #CCCCCC;
 }

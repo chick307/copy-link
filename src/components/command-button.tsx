@@ -87,7 +87,7 @@ export const CommandButton = (props: Props) => {
     return <>
         <div className={styles.commandButton}>
             {messageBubble}
-            <button className={buttonClassName} disabled={buttonDisabled} onClick={onButtonClick}>
+            <button className={`${styles.button} ${buttonClassName}`} disabled={buttonDisabled} onClick={onButtonClick}>
                 {children}
             </button>
         </div>
