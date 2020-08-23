@@ -1,11 +1,18 @@
+:root {
+    --commandButton-defaultButtonFace: #EEEEEE;
+    --commandButton-hoverButtonFace: #DDDDDD;
+    --commandButton-activeButtonFace: #CCCCCC;
+}
+
 .command-button {
+    display: flex;
     position: relative;
 }
 
 .button {
     flex: 1;
     display: inline-block;
-    background: #EEEEEE;
+    background: var(--commandButton-defaultButtonFace);
     color: #444444;
     outline: none;
     border: none;
@@ -13,11 +20,11 @@
 }
 
 .button:hover {
-    background: #DDDDDD;
+    background: var(--commandButton-hoverButtonFace);
 }
 
 .button:active {
-    background: #CCCCCC;
+    background: var(--commandButton-activeButtonFace);
 }
 
 .message-bubble {
