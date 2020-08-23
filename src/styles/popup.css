@@ -3,7 +3,7 @@ body {
 }
 
 :global(#container) {
-    width: 480px;
+    width: 520px;
     user-select: none;
     padding: 1em;
     box-sizing: border-box;
