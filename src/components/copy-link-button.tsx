@@ -2,6 +2,7 @@ import React from 'react';
 
 import { LinkData } from '../values/link-data';
 import { ClipboardService } from '../services/clipboard-service';
+import { escape as htmlEscape } from '../utils/html';
 import copyButtonGroupStyles from './copy-button-group.css';
 import styles from './copy-link-button.css';
 import { CommandButton } from './command-button';
@@ -10,14 +11,6 @@ export type Props = {
     children?: React.ReactNode;
     clipboardService: ClipboardService;
     data: LinkData;
-};
-
-const htmlEscape = (text: string, { quot = false } = {}) => {
-    const div = document.createElement('div');
-    div.textContent = text;
-    if (quot)
-        return div.innerHTML.replace(/"/g, '&quot;');
-    return div.innerHTML;
 };
 
 export const CopyLinkButton = (props: Props) => {
