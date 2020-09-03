@@ -22,7 +22,6 @@ module.exports = {
     minimum_chrome_version: '79',
     permissions: [
         'activeTab',
-        'clipboardWrite',
     ],
     /* eslint-enable @typescript-eslint/camelcase */
 };
