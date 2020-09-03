@@ -3,6 +3,7 @@ import React from 'react';
 import { LinkData } from '../values/link-data';
 import { ClipboardService } from '../services/clipboard-service';
 import { escape as htmlEscape } from '../utils/html';
+import { renderLink as renderMarkdownLink } from '../utils/markdown';
 import copyButtonGroupStyles from './copy-button-group.css';
 import styles from './copy-link-button.css';
 import { CommandButton } from './command-button';
@@ -52,6 +53,15 @@ export const CopyLinkButton = (props: Props) => {
         };
     }, [data]);
 
+    const copyMarkdownLinkCommand = React.useMemo(() => {
+        return {
+            run: async () => {
+                const link = renderMarkdownLink({ text: data.title, url: data.url });
+                await clipboardService.writeText(link);
+            },
+        };
+    }, [data]);
+
     React.useEffect(() => {
         const listener = () => {
             setDropdownVisible(() => false);
@@ -86,6 +96,10 @@ export const CopyLinkButton = (props: Props) => {
                         <CommandButton buttonClassName={styles.button}
                             command={copyHtmlLinkCommand} succeededMessage={'Copied'} failedMessage={'Failed'}>
                             Copy Link as HTML
+                        </CommandButton>
+                        <CommandButton buttonClassName={styles.button}
+                            command={copyMarkdownLinkCommand} succeededMessage={'Copied'} failedMessage={'Failed'}>
+                            Copy Link as Markdown
                         </CommandButton>
                     </div>
                 </div>
