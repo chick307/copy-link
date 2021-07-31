@@ -30,8 +30,9 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            localsConvention: 'camelCase',
-                            modules: true,
+                            modules: {
+                                exportLocalsConvention: 'camelCase',
+                            },
                         },
                     },
                 ],
@@ -42,8 +43,8 @@ module.exports = {
         filename: path.join('scripts', '[name].js'),
     },
     plugins: [
-        new CopyPlugin([{ from: 'src/assets', to: 'assets' }]),
-        new CopyPlugin([{ from: 'src/views', to: 'views' }]),
+        new CopyPlugin({ patterns: [{ from: 'src/assets', to: 'assets' }] }),
+        new CopyPlugin({ patterns: [{ from: 'src/views', to: 'views' }] }),
         new MiniCssExtractPlugin({ filename: path.join('styles', '[name].css') }),
     ],
     resolve: {
