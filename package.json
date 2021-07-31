@@ -37,6 +37,7 @@
   },
   "scripts": {
     "build:archive": "cd build/prod && zip -r ../archive.zip .",
+    "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js",
     "clean": "rm -rf build",
     "clean:archive": "rm -f build/archive.zip",
