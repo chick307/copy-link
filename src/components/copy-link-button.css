@@ -38,11 +38,14 @@
     flex: 1;
 }
 
+.dropdown-button-container {
+    height: 100%;
+}
+
 .dropdown-button {
     padding: 0.5rem;
     line-height: 1;
 }
-
 
 .dropdown-button-icon {
     width: 1.5em;
