@@ -1,7 +1,7 @@
 import { escape as htmlEscape } from './html';
 
-const SPECIAL_CHARACTERS = /[\\`*_{}[\]()#+\-.!|]/g;
-const SPECIAL_CHARACTERS_IN_LINK_TEXT = /[\\`*_[\]!|]/g;
+const SPECIAL_CHARACTERS = /[\\`*_{}[\]()#$+\-.!|]/g;
+const SPECIAL_CHARACTERS_IN_LINK_TEXT = /[\\`*_[\]$!|]/g;
 const SPECIAL_CHARACTERS_IN_LINK_URL = /[\\()|]/g;
 
 export const escape = (text: string, context: 'link-text' | 'link-url' | 'text' = 'text') => {

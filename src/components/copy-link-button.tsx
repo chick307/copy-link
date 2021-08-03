@@ -89,7 +89,8 @@ export const CopyLinkButton = (props: Props) => {
                     {children}
                 </CommandButton>
                 <div onClick={stopPropagation}>
-                    <CommandButton buttonClassName={styles.dropdownButton} command={toggleDropdownCommand}>
+                    <CommandButton className={styles.dropdownButtonContainer} buttonClassName={styles.dropdownButton}
+                        command={toggleDropdownCommand}>
                         <img className={styles.dropdownButtonIcon} src='assets/images/chevron-down.svg' />
                     </CommandButton>
                     <div className={`${styles.dropdown} ${dropdownVisible ? styles.visible : ''}`}>

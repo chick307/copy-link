@@ -11,16 +11,25 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
         'plugin:react/recommended',
     ],
-    globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly',
-        chrome: 'readonly',
-    },
     overrides: [
         {
-            files: ['manifest.js', 'webpack.*.js'],
+            files: ['.eslintrc.js'],
+            rules: {
+                'sort-keys': ['error'],
+            },
+        },
+        {
+            files: ['manifest.js'],
+            rules: {
+                '@typescript-eslint/naming-convention': ['off'],
+                '@typescript-eslint/no-var-requires': ['off'],
+            },
+        },
+        {
+            files: ['webpack.*.js'],
             rules: {
                 '@typescript-eslint/no-var-requires': ['off'],
+                'sort-keys': ['error'],
             },
         },
     ],
@@ -37,13 +46,26 @@ module.exports = {
         'react',
     ],
     rules: {
-        '@typescript-eslint/camelcase': ['error', { ignoreDestructuring: true, properties: 'always' }],
         '@typescript-eslint/explicit-function-return-type': ['off'],
-        '@typescript-eslint/indent': ['error', 4, { SwitchCase: 1, flatTernaryExpressions: true }],
+        '@typescript-eslint/explicit-module-boundary-types': ['off'],
+        '@typescript-eslint/indent': ['error', 4, {
+            /* eslint-disable @typescript-eslint/naming-convention */
+            SwitchCase: 1,
+            /* eslint-enable @typescript-eslint/naming-convention */
+            flatTernaryExpressions: true,
+        }],
         '@typescript-eslint/member-delimiter-style': ['error', {
             multiline: { delimiter: 'semi', requireLast: true },
             singleline: { delimiter: 'semi', requireLast: true },
         }],
+        '@typescript-eslint/naming-convention': [
+            'error',
+            { format: ['camelCase'], selector: 'default' },
+            { format: ['PascalCase', 'UPPER_CASE', 'camelCase'], selector: 'variable' },
+            { format: ['camelCase'], leadingUnderscore: 'allow', selector: 'parameter' },
+            { format: ['camelCase'], leadingUnderscore: 'require', modifiers: ['private'], selector: 'memberLike' },
+            { format: ['PascalCase'], selector: 'typeLike' },
+        ],
         'array-bracket-newline': ['error', 'consistent'],
         'array-bracket-spacing': ['error', 'never'],
         'arrow-parens': ['error', 'always'],
