@@ -1,7 +1,6 @@
 const pkg = require('./package.json');
 
 module.exports = {
-    /* eslint-disable @typescript-eslint/camelcase */
     manifest_version: 2,
     name: 'Copy Link',
     version: pkg.version,
@@ -23,5 +22,4 @@ module.exports = {
     permissions: [
         'activeTab',
     ],
-    /* eslint-enable @typescript-eslint/camelcase */
 };

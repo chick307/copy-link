@@ -1,5 +1,3 @@
-/* eslint sort-keys: 'error' */
-
 const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
